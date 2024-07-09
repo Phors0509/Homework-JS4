@@ -2,18 +2,18 @@
 // Input: [ {name: “Bread”, category: “Grocery”}, {name: “Butter”, category: “Grocery”}, {name: “Shampoo”, category: “Personal Care”}]
 // Output: { “Grocery”: [“Bread”, “Butter”], “Personal Care”: [“Shampoo”]}
 
-const item = [
+const items = [
     { name: "Bread", category: "Grocery" },
     { name: "Butter", category: "Grocery" },
     { name: "Shampoo", category: "Personal Care" },
 ];
 
-const groupedByCategory = item.reduce((current, item) => {
-    if (!current[item.category]) {
-        current[item.category] = [];
+const groupedByCategory = items.reduce((acc, current) => {
+    if (!acc[current.category]) {
+        acc[current.category] = [];
     }
-    current[item.category].push(item.name);
-    return current;
+    acc[current.category].push(current.name);
+    return acc;
 }, {});
 
 console.log(groupedByCategory);

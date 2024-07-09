@@ -8,19 +8,8 @@ const users = [
     { name: "Jack", age: 19 },
 ];
 
-function filterUsers(users, callback) {
-    const result = [];
-
-    for (let i = 0; i < users.length; i++) {
-        if (callback(users[i])) {
-            result.push(users[i]);
-        }
-    }
-    return result;
+function filterUsers(users) {
+    return users.filter((user) => user.age > 18);
 }
 
-function checkAge(users) {
-    return users.age > 18;
-}
-
-console.log(filterUsers(users, checkAge));
+console.log(filterUsers(users));
